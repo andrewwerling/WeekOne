@@ -30,6 +30,7 @@ public class MultipleValuesFromCommandLine {
 				grandSum += userInput.nextInt();
 				
 			}
+			userInput.close();
 			System.out.println("You chose to input " + numOfValuesDesired + "values and the sum of these values is " + grandSum);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

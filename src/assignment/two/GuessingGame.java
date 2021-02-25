@@ -21,9 +21,6 @@ public class GuessingGame {
 		int randomNumber = random.nextInt(100);
 
 		//System.out.println(randomNumber); // used for testing
-		
-		// variable to keep track of attempts
-		int attempts = 0;
 
 		// Scanner to get input from user
 		Scanner userInput = new Scanner(System.in);
@@ -39,6 +36,12 @@ public class GuessingGame {
 
 			// store user's guess in variable "guess"
 			guess = userInput.nextInt();
+			
+			// if guess is out of bounds let user know
+			if (guess <= 0 || guess > 100) {
+				System.out.println(guess + " is not between 1-100... please try again");
+				continue;
+			}
 
 			// if user's guess is correct let them know they win!
 			if (guess == randomNumber) {
@@ -46,8 +49,7 @@ public class GuessingGame {
 				System. exit(0);
 			}
 			// if user's guess is within 10 of random number let them know they win!
-			// also checks to make sure they don't guess a number out of bounds
-			else if (guess < (randomNumber + 10) && guess > (randomNumber - 10) && guess > 0 && guess < 100) {
+			else if (guess < (randomNumber + 10) && guess > (randomNumber - 10)) {
 				System.out.println("Your guess " + guess + " was within ten of " + randomNumber + ", you win!");
 				System.out.println("Thanks for playing the GuessingGame!");
 				System. exit(0);
@@ -61,6 +63,7 @@ public class GuessingGame {
 			}
 		}
 		System.out.println("Sorry, Game over! The number was " + randomNumber + "\nOnly 5 attempts allowed, better luck next time!");
+		userInput.close();
 		System. exit(0);
 	}
 

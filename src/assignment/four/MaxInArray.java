@@ -3,8 +3,6 @@
  */
 package assignment.four;
 
-import java.util.Arrays;
-
 /**
  * @author andrewwerling
  *
