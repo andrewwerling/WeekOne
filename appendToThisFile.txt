@@ -4,3 +4,6 @@ one last line to append! All done
 this text gets appended to the file!
 another line to get appended to the file!
 one last line to append! All done
+this text gets appended to the file!
+another line to get appended to the file!
+one last line to append! All done
