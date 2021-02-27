@@ -1,7 +1,7 @@
 /**
  * 
  */
-package assignments.ThreadAndJUnit;
+package assignment.ThreadAndJUnit;
 
 /**
  * @author andrewwerling

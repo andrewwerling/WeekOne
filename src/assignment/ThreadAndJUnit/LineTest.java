@@ -1,7 +1,7 @@
 /**
  * 
  */
-package assignments.ThreadAndJUnit;
+package assignment.ThreadAndJUnit;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
@@ -22,7 +22,7 @@ public class LineTest {
 
 
 	/**
-	 * Test method for {@link assignments.ThreadAndJUnit.Line#getSlope()}.
+	 * Test method for {@link assignment.ThreadAndJUnit.Line#getSlope()}.
 	 */
 	@Test
 	public void testGetSlope() {
@@ -34,7 +34,7 @@ public class LineTest {
 	}
 
 	/**
-	 * Test method for {@link assignments.ThreadAndJUnit.Line#getDistance()}.
+	 * Test method for {@link assignment.ThreadAndJUnit.Line#getDistance()}.
 	 */
 	@Test
 	public void testGetDistance() {
@@ -43,7 +43,7 @@ public class LineTest {
 	}
 
 	/**
-	 * Test method for {@link assignments.ThreadAndJUnit.Line#parallelTo(assignments.ThreadAndJUnit.Line)}.
+	 * Test method for {@link assignment.ThreadAndJUnit.Line#parallelTo(assignment.ThreadAndJUnit.Line)}.
 	 */
 	@Test
 	public void testParallelTo() {
