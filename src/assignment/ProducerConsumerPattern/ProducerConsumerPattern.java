@@ -7,13 +7,19 @@ import java.util.concurrent.BlockingQueue;
 /**
  * 
  * @author andrewwerling
+ * 
+ * After watching a tutorial from Cave of Programming I found this method to fulfill
+ * the assignment requirements with less code than I was planning to use.
+ * video found here: https://www.youtube.com/watch?v=Vrt5LqpH2D0&feature=emb_title
+ * 
+ *
  *
  */
 public class ProducerConsumerPattern {
 
 	// Array Blocking Queue Interface removes need to synchronize between threads
-	// max size of 10 in thread safe queue
-	private static BlockingQueue<Integer> queue = new ArrayBlockingQueue<Integer>(10);
+	// max size of 1000 in thread safe queue
+	private static BlockingQueue<Integer> queue = new ArrayBlockingQueue<Integer>(50);
 	/**
 	 * 
 	 * @param args
@@ -21,10 +27,10 @@ public class ProducerConsumerPattern {
 	 */
 	public static void main(String[] args) throws InterruptedException {
 
-		Thread t1 = new Thread(new Runnable() {
+		Thread threadOne = new Thread(new Runnable() {
 			public void run() {
 				try {
-					producer();
+					producerMethod();
 				} catch (InterruptedException e) {
 					
 					e.printStackTrace();
@@ -32,10 +38,10 @@ public class ProducerConsumerPattern {
 			}
 		});
 
-		Thread t2 = new Thread(new Runnable() {
+		Thread threadTwo = new Thread(new Runnable() {
 			public void run() {
 				try {
-					consumer();
+					consumerMethod();
 				} catch (InterruptedException e) {
 					
 					e.printStackTrace();
@@ -43,12 +49,12 @@ public class ProducerConsumerPattern {
 			}
 		});
 
-		t1.start();
-		t2.start();
+		threadOne.start();
+		threadTwo.start();
 
 		
-		t1.join();
-		t2.join();
+		threadOne.join();
+		threadTwo.join();
 		
 
 	}
@@ -56,33 +62,33 @@ public class ProducerConsumerPattern {
 	 * 
 	 * @throws InterruptedException
 	 * 
-	 * Indefinitely loops and adds random integers to queue as quickly as possible
+	 * Indefinitely loops and adds randInteger integers to queue as quickly as possible
 	 */
-	private static void producer() throws InterruptedException {
+	private static void producerMethod() throws InterruptedException {
 
-		Random random = new Random();
+		Random randInteger = new Random();
 
 		while (true) {
-			queue.put(random.nextInt(100));
+			queue.put(randInteger.nextInt(50));
 		}
 	}
 	/**
 	 * 
 	 * @throws InterruptedException
 	 * 
-	 * Indefinitely loops and takes random integers from queue waiting 100 milliseconds each loop iteration
+	 * Indefinitely loops and takes randInteger integers from queue waiting 100 milliseconds each loop iteration
 	 */
-	private static void consumer() throws InterruptedException {
+	private static void consumerMethod() throws InterruptedException {
 
-		Random random = new Random();
+		Random randInteger = new Random();
 
 		while (true) {
 
-			Thread.sleep(100);
-			if (random.nextInt(10) == 0) {
-				Integer value = queue.take();
+			Thread.sleep(10);
+			if (randInteger.nextInt(50) == 0) {
+				Integer takeValue = queue.take();
 
-				System.out.println("Taken value: " + value + "; Queue size is: " + queue.size());
+				System.out.println("Integer Value removed = " + takeValue + "\nBlocking Queue size   = " + queue.size() + "\n");
 
 			}
 		}
