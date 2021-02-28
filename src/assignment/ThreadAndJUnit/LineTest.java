@@ -31,6 +31,12 @@ public class LineTest {
 		assertEquals(1, testLineThree.getSlope(), .0001);
 		assertEquals(1, testLineFour.getSlope(), .0001);
 		assertEquals(1, testLineFive.getSlope(), .0001);
+		
+		assertNotEquals(0, testLineOne.getSlope(), .0001);
+		assertNotEquals(0, testLineTwo.getSlope(), .0001);
+		assertNotEquals(0, testLineThree.getSlope(), .0001);
+		assertNotEquals(0, testLineFour.getSlope(), .0001);
+		assertNotEquals(0, testLineFive.getSlope(), .0001);
 	}
 
 	/**
@@ -40,6 +46,9 @@ public class LineTest {
 	public void testGetDistance() {
 		assertEquals(2.828427, testLineSix.getDistance(), .0001);
 		assertEquals(7.071068, testLineSeven.getDistance(), .0001);
+		
+		assertNotEquals(1, testLineSix.getDistance(), .0001);
+		assertNotEquals(1, testLineSeven.getDistance(), .0001);
 	}
 
 	/**
