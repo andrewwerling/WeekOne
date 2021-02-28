@@ -6,6 +6,7 @@ package assignment.ListAllFilesAndDirectories;
 import java.io.File;
 import java.nio.file.Path;
 import java.util.Scanner;
+import java.nio.file.Paths;
 /**
  * @author andrewwerling
  *
@@ -18,21 +19,30 @@ public class ListAllFilesAndDirectories {
 	public static void main(String[] args) {
 		
 		try {
-			Path filePath = null;
+			String directoryPath = null;
 			Scanner userInput = new Scanner(System.in);
 
-			while (filePath == null) {
+
+			while (directoryPath == null) {
 				
 				System.out.println("Please enter the desired directory to search (absolute or relative file path:");
 				// Get desired file path from user input via scanner 
-				String directoryPath = userInput.next();
-				
+				directoryPath = userInput.next();
 				// Create a new file object from directoryPath
 				File directoryAsFile = new File(directoryPath);
+				if (!directoryAsFile.exists()) {
+					directoryPath = null;
+					System.out.println(userInput + " does not exist on this system!");
+					System.out.println("Please enter the desired directory to search (absolute or relative file path: ");
+				} else {
+					
+				}
+				
 				// Create string array of all files/directories from directoryAsFile object
 				String[] fileList = directoryAsFile.list();
 				// Loop through fileList and print name of file/directory
 				for (String fileName : fileList) {
+					
 					System.out.println(fileName);
 				}
 			}
