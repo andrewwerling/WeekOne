@@ -34,7 +34,8 @@ public class BasicLambdas {
 		
 		System.out.println("\nSort Array alphabeticallly\n-------------------------------");
 		// Sort array alphabetically
-		song.sort((aName, bName) -> aName.compareTo(bName));
+//		song.sort((aName, bName) -> aName.compareTo(bName));
+		song.sort(String::compareToIgnoreCase);
 		System.out.print(song.toString());
 		
 	}
